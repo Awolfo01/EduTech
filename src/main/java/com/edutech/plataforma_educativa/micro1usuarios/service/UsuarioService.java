@@ -43,5 +43,6 @@ public class UsuarioService {
         return null;
     }
 
-
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 }
