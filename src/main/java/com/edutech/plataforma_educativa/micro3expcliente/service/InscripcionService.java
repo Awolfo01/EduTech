@@ -51,8 +51,8 @@ public class InscripcionService {
         return inscripcionRepository.save(inscripcion);
     }
 
-    public Inscripcion obtenerPorId(Long id) {
-        return inscripcionRepository.findById(id).orElse(null);
-    }
+    //public Inscripcion obtenerPorId(Long id) {
+       // return inscripcionRepository.findById(id).orElse(null);
+    //}
 
 }
