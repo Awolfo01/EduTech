@@ -1,6 +1,5 @@
 package com.edutech.plataforma_educativa.micro3expcliente.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -22,14 +21,13 @@ public class InscripcionService {
         this.restTemplate = restTemplate;
     }
 
-
     public CursoDTO obtenerCurso(Long idCurso) {
-        String url = "http://localhost:8080/api/micro2/cursos/" + idCurso;
+        String url = "http://localhost:8081/api/micro2/cursos/" + idCurso;
         return restTemplate.getForObject(url, CursoDTO.class);
     }
 
     public UsuarioDTO obtenerEstudiante(Long idEstudiante) {
-        String url = "http://localhost:8080/api/micro1/usuarios/" + idEstudiante;
+        String url = "http://localhost:8081/api/micro1/usuarios/" + idEstudiante;
         return restTemplate.getForObject(url, UsuarioDTO.class);
     } //Este metodo per,ite obtener el estudiante (que es un dato de la clase Usuario, del paquete de micro1)
 
