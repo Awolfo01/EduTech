@@ -18,3 +18,4 @@ public class JpaBuilderConfig {
             null
         );
     }
+}
