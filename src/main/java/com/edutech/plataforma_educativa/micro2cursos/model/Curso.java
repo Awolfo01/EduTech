@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "curso")
 public class Curso {
 
     @Id
@@ -17,7 +18,7 @@ public class Curso {
     @Enumerated(EnumType.STRING)
     private EstadoCurso estado;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Modulo> modulos;
 
     public Curso() {}

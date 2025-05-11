@@ -1,5 +1,8 @@
 package com.edutech.plataforma_educativa.micro2cursos.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.sql.DataSource;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -27,7 +30,7 @@ import com.zaxxer.hikari.HikariDataSource;
 public class Micro2DataSourceConfig {
 
     @Bean(name = "micro2DataSource")
-    public DataSource micro1DataSource() {
+    public DataSource micro2DataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/micro2_cursos");
         dataSource.setUsername("root");
@@ -44,15 +47,20 @@ public class Micro2DataSourceConfig {
 
     @Bean(name = "micro2EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean micro2EntityManagerFactory(
-            EntityManagerFactoryBuilder builder,
-            @Qualifier("micro2DataSource") DataSource dataSource,
-            @Qualifier("micro2JpaProperties") JpaProperties jpaProperties) {
-        return builder
-                .dataSource(dataSource)
-                .packages("com.edutech.plataforma_educativa.micro2cursos.model")
-                .persistenceUnit("micro2")
-                .properties(jpaProperties.getProperties())
-                .build();
+        EntityManagerFactoryBuilder builder,
+        @Qualifier("micro2DataSource") DataSource dataSource) {
+
+    Map<String, Object> jpaProps = new HashMap<>();
+    jpaProps.put("hibernate.hbm2ddl.auto", "update");
+    jpaProps.put("hibernate.show_sql", true);
+    jpaProps.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+
+    return builder
+            .dataSource(dataSource)
+            .packages("com.edutech.plataforma_educativa.micro2cursos.model")
+            .persistenceUnit("micro2")
+            .properties(jpaProps)
+            .build();
     }
 
     @Bean(name = "micro2TransactionManager")

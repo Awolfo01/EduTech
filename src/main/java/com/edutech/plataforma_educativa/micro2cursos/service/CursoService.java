@@ -24,7 +24,7 @@ public class CursoService {
     }
 
     public UsuarioDTO obtenerInstructor(Long idInstructor) {
-        String url = "http://localhost:8080/api/micro1/usuarios/" + idInstructor;
+        String url = "http://localhost:8081/api/micro1/usuarios/" + idInstructor;
         return restTemplate.getForObject(url, UsuarioDTO.class);
     }
 
@@ -71,4 +71,3 @@ public class CursoService {
     }
 
 }
-
