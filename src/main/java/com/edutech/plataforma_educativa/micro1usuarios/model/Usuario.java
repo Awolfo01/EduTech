@@ -3,6 +3,7 @@ package com.edutech.plataforma_educativa.micro1usuarios.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
@@ -13,7 +14,7 @@ public class Usuario {
     private String contrasena;
     private boolean activo;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
@@ -85,8 +86,4 @@ public class Usuario {
     public void desactivarCuenta() {
         this.activo = false;
     }
-
-    //Estos métodos quedan aquí, espero no estar equivocado, para modificar el estado interno del objeto mientras el programa está en ejecución
-
 }
-
