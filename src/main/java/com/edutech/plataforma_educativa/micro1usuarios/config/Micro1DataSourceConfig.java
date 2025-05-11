@@ -1,5 +1,8 @@
 package com.edutech.plataforma_educativa.micro1usuarios.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.sql.DataSource;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -39,15 +42,20 @@ public class Micro1DataSourceConfig {
 
     @Bean(name = "micro1EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean micro1EntityManagerFactory(
-            EntityManagerFactoryBuilder builder,
-            @Qualifier("micro1DataSource") DataSource dataSource,
-            @Qualifier("micro1JpaProperties") JpaProperties jpaProperties) {
-        return builder
-                .dataSource(dataSource)
-                .packages("com.edutech.plataforma_educativa.micro1usuarios.model")
-                .persistenceUnit("micro1")
-                .properties(jpaProperties.getProperties())
-                .build();
+        EntityManagerFactoryBuilder builder,
+        @Qualifier("micro1DataSource") DataSource dataSource) {
+            
+            Map<String, Object> jpaProps = new HashMap<>();
+            jpaProps.put("hibernate.hbm2ddl.auto", "update");
+            jpaProps.put("hibernate.show_sql", true);
+            jpaProps.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            
+            return builder
+            .dataSource(dataSource)
+            .packages("com.edutech.plataforma_educativa.micro1usuarios.model")
+            .persistenceUnit("micro1")
+            .properties(jpaProps)
+            .build();
     }
 
     @Bean(name = "micro1TransactionManager")
@@ -62,4 +70,3 @@ public class Micro1DataSourceConfig {
         return new JpaProperties();
     }
 }
-
