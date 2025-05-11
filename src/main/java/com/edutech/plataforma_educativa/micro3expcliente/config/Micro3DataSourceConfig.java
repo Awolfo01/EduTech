@@ -1,5 +1,8 @@
 package com.edutech.plataforma_educativa.micro3expcliente.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.sql.DataSource;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -44,14 +47,19 @@ public class Micro3DataSourceConfig {
 
     @Bean(name = "micro3EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean micro3EntityManagerFactory(
-            EntityManagerFactoryBuilder builder,
-            @Qualifier("micro3DataSource") DataSource dataSource,
-            @Qualifier("micro3JpaProperties") JpaProperties jpaProperties) {
-        return builder
+        EntityManagerFactoryBuilder builder,
+        @Qualifier("micro3DataSource") DataSource dataSource) {
+            
+            Map<String, Object> jpaProps = new HashMap<>();
+            jpaProps.put("hibernate.hbm2ddl.auto", "update");
+            jpaProps.put("hibernate.show_sql", true);
+            jpaProps.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            
+            return builder
                 .dataSource(dataSource)
                 .packages("com.edutech.plataforma_educativa.micro3expcliente.model")
                 .persistenceUnit("micro3")
-                .properties(jpaProperties.getProperties())
+                .properties(jpaProps)
                 .build();
     }
 
@@ -61,5 +69,3 @@ public class Micro3DataSourceConfig {
         return new JpaTransactionManager(factory);
     }
 }
-
-
