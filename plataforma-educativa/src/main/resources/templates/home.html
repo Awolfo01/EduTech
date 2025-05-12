@@ -1,0 +1,247 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio - EDUTECH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  
+	nav {
+      background-color: #d5fccd;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fcf8;
+      color: #333;
+    }
+
+    header {
+      background-color: #c8f9c4;;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #1a3e2f;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #2e7d32;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+    }
+
+    .faq-item summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .curso-historial {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 0;
+    }
+
+    .rating {
+      color: gold;
+      font-size: 1.2rem;
+    }
+
+   
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+
+
+    input:focus, textarea:focus {
+      outline: 2px solid #80cbc4;
+      transition: outline 0.2s ease-in-out;
+    }
+
+    details[open] summary::after {
+      content: "▲";
+      float: right;
+    }
+
+    summary::after {
+      content: "▼";
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Bienvenido a EDUTECH</h1>
+  <p>Tu plataforma de formación en línea</p>
+  
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="aula">Mi aula virtual</a>
+	<a href="#">Actualizar cuenta</a>
+   
+  </nav>
+</header>
+
+
+<main>
+
+ 
+  <section>
+    <h2>Registro de Usuario</h2>
+    <form action="/api/micro1/usuarios" method="POST">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="contrasena">Contraseña</label>
+      <input type="password" id="contrasena" name="contrasena" required>
+
+      <label for="activo">Activo</label>
+      <input type="checkbox" id="activo" name="activo" required>
+
+      <button type="submit">Registrar</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Contacto / Soporte</h2>
+    <form>
+      <label for="contacto-nombre">Nombre</label>
+      <input type="text" id="contacto-nombre" required>
+
+      <label for="contacto-correo">Correo electrónico</label>
+      <input type="email" id="contacto-correo" required>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" rows="4" required></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+
+  <section>
+    <h2>Preguntas Frecuentes (FAQ)</h2>
+    <details class="faq-item">
+      <summary>¿Cómo accedo a mis cursos?</summary>
+      <p>Una vez registrado e iniciado sesión, accede a "Mi Aula" desde el menú principal.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>¿Puedo acceder desde mi celular?</summary>
+      <p>Sí, nuestra plataforma es 100% compatible con dispositivos móviles.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>¿Cómo califico un curso?</summary>
+      <p>Al completar un curso, tendrás disponible un formulario de calificación en tu historial.</p>
+    </details>
+  </section>
+
+
+  <section>
+    <h2>Historial de Cursos Completados</h2>
+
+    <div class="curso-historial">
+      <p><strong>Curso:</strong> Introducción a HTML</p>
+      <p><strong>Fecha:</strong> 01/04/2025</p>
+      <p>⭐ Valoración:
+        <span class="rating">★★★★☆</span>
+      </p>
+    </div>
+
+    <div class="curso-historial">
+      <p><strong>Curso:</strong> Fundamentos de CSS</p>
+      <p><strong>Fecha:</strong> 15/04/2025</p>
+      <p>⭐ Valoración:
+        <span class="rating">★★★☆☆</span>
+      </p>
+    </div>
+
+    <div class="curso-historial">
+      <p><strong>Curso:</strong> JavaScript Intermedio</p>
+      <p><strong>Fecha:</strong> 01/05/2025</p>
+      <p>⭐ Valoración:
+        <span class="rating">★★★★★</span>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
