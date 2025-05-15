@@ -41,4 +41,11 @@ public Usuario cambiarContrasena(@PathVariable Long id, @RequestBody String nuev
 public Usuario activarCuenta(@PathVariable Long id) {
     return usuarioService.activarCuenta(id);
 }
+
+@PutMapping("/{id}")
+public Usuario actualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+    return usuarioService.actualizarUsuario(id, usuario);
+}
+
+
 }
