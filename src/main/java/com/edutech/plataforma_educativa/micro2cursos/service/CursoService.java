@@ -55,6 +55,14 @@ public class CursoService {
         return null;
     }
 
+    public void eliminarCurso(Long id) {
+        if (cursoRepository.existsById(id)) {
+            cursoRepository.deleteById(id);
+        } else {
+            throw new RuntimeException("Curso no encontrado con ID: " + id);
+        }
+    }
+
     @Autowired
     private CursoRepository cursoRepository;
 
