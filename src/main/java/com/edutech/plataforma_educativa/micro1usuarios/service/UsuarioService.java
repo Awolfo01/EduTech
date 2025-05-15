@@ -45,4 +45,21 @@ public class UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    public Usuario actualizarUsuario(Long id, Usuario usuarioActualizado) {
+        Usuario usuarioExistente = obtenerPorId(id);
+        
+        if (usuarioExistente != null) {
+            usuarioExistente.setNombre(usuarioActualizado.getNombre());
+            usuarioExistente.setEmail(usuarioActualizado.getEmail());
+            usuarioExistente.setContrasena(usuarioActualizado.getContrasena());
+            usuarioExistente.setActivo(usuarioActualizado.isActivo());
+            usuarioExistente.setRol(usuarioActualizado.getRol());
+
+            return usuarioRepository.save(usuarioExistente);
+        }
+
+        return null;
+    }
+
 }
