@@ -1,7 +1,5 @@
 package com.edutech.plataforma_educativa.micro1usuarios.controller;
 
-
-
 import org.springframework.web.bind.annotation.*;
 import com.edutech.plataforma_educativa.micro1usuarios.model.Usuario;
 import com.edutech.plataforma_educativa.micro1usuarios.service.UsuarioService;
