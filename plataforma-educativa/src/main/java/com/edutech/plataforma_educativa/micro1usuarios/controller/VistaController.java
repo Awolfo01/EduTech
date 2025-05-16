@@ -14,8 +14,8 @@ public class VistaController {
 
         @GetMapping("/aula")
     public String aula(Model model) {
-        model.addAttribute("message", "¡Bienvenido a la Plataforma Educativa!");
         return "aula";  // Nombre de la vista (archivo HTML en resources/templates)
     }
+    
     
 }

@@ -88,7 +88,4 @@ public class Usuario {
         this.activo = false;
     }
 
-    //Estos métodos quedan aquí, espero no estar equivocado, para modificar el estado interno del objeto mientras el programa está en ejecución
-
-
 }

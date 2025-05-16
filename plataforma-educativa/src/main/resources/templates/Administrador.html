@@ -1,0 +1,172 @@
+	
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Usuarios - EDUTECH</title>
+  <style>
+  
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
+
+    h1 {
+      background-color: #d5fccd;
+      color: #000;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+	nav {
+      background-color: #d5fccd;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #e6fce3;
+      color: #333;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .actions input,
+    .actions button {
+      padding: 10px 15px;
+      margin: 5px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .actions input[type="button"] {
+      background-color: #fbc02d;
+      color: #000;
+    }
+
+    .actions input[type="button"]:hover {
+      background-color: #f9a825;
+    }
+
+    .actions button {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .actions button:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Cursos</a>
+	<a href="#">Actualizar cuenta</a>
+   
+  </nav>
+  
+  <h1>Gestión de Usuarios</h1>
+
+  <div class="container">
+    
+    <table summary="Gestión de usuarios">
+      <thead>
+        <tr>
+          <th>Nombre de usuario</th>
+          <th>Correo electrónico</th>
+          <th>Estado</th>
+          <th>Rol / Permisos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Juanita</td>
+          <td>juanita@hotmail.com</td>
+          <td>Activo</td>
+          <td>Administrador</td>
+        </tr>
+        <tr>
+          <td>Anita</td>
+          <td>anita@gmail.com</td>
+          <td>Inactivo</td>
+          <td>Usuario</td>
+        </tr>
+        <tr>
+          <td>Pepe</td>
+          <td>pepe@gmail.com</td>
+          <td>Activo</td>
+          <td>Usuario</td>
+        </tr>
+        <tr>
+          <td>Esteban</td>
+          <td>esteban@gmail.com</td>
+          <td>Activo</td>
+          <td>Usuario</td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+    <div class="actions">
+      <input type="button" value="Editar">
+      <input type="button" value="Borrar">
+      <button>Crear Usuario</button>
+    </div>
+  </div>
+
+</body>
+</html>

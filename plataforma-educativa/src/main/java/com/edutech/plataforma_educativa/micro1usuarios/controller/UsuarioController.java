@@ -27,6 +27,7 @@ public class UsuarioController {
     public Usuario crear(@ModelAttribute Usuario usuario) {//cambiar RequestBody a model atribute para tomar los datos del formulario html
         return usuarioService.crear(usuario);
     }
+   
 
     @GetMapping("/{id}")
     public Usuario obtener(@PathVariable Long id) {
@@ -34,7 +35,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}/contrasena")
-public Usuario cambiarContrasena(@PathVariable Long id, @RequestBody String nueva) {
+    public Usuario cambiarContrasena(@PathVariable Long id, @RequestBody String nueva) {
     return usuarioService.cambiarContrasena(id, nueva);
 }
 
