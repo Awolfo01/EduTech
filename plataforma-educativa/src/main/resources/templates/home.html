@@ -157,43 +157,66 @@
 
 
 <main>
+  <section style="background-color:#f5fdf4; padding: 40px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-family: 'Segoe UI', sans-serif; max-width: 900px; margin: 0 auto;">
+  <h1 style="color:#1a3e2f; font-size: 2em; text-align: center;">Bienvenidos a EduTech: Educación en línea que evoluciona contigo</h1>
+  <p style="font-size: 1.1em; line-height: 1.6; color: #333;">
+    En <strong>EduTech Innovations SPA</strong> creemos que la educación debe ser accesible, flexible y de calidad, sin importar el lugar ni la hora. Por eso ofrecemos <strong>formación en línea moderna y personalizada</strong>, apoyada en tecnologías digitales que permiten a nuestros estudiantes aprender a su ritmo, desde cualquier dispositivo.
+  </p>
+
+  <p style="font-size: 1.1em; line-height: 1.6; color: #333;">
+    Con el crecimiento de nuestra comunidad de usuarios y el constante avance del mundo digital, hemos decidido <strong>dar un paso adelante</strong> en la evolución de nuestra plataforma. Estamos trabajando en una completa <strong>modernización tecnológica</strong>, dejando atrás los límites de los sistemas tradicionales.
+  </p>
+
+  <p style="font-size: 1.1em; line-height: 1.6; color: #333;">
+    Este rediseño no solo mejorará el rendimiento y la estabilidad de nuestra plataforma, sino que también permitirá escalar cada módulo de manera independiente, integrar nuevas funcionalidades de forma más rápida, y brindar una experiencia más fluida a cada usuario.
+  </p>
+
+  <h2 style="color:#2e7d32; margin-top: 30px;">¿Por qué elegir EduTech?</h2>
+  <ul style="font-size: 1.1em; color: #333; padding-left: 20px;">
+    <li>✅ <strong>Formación 100% online:</strong> Estudia desde donde quieras, a cualquier hora.</li>
+    <li>✅ <strong>Tecnología de última generación:</strong> Nuestra nueva plataforma te ofrece velocidad, estabilidad y una navegación más intuitiva.</li>
+    <li>✅ <strong>Contenidos actualizados:</strong> Cursos diseñados con expertos, alineados a las necesidades del mercado actual.</li>
+    <li>✅ <strong>Compromiso con tu crecimiento:</strong> Queremos que llegues lejos, y te damos las herramientas para lograrlo.</li>
+  </ul>
+
+  <p style="font-size: 1.1em; line-height: 1.6; color: #333; margin-top: 30px;">
+    Estamos construyendo el futuro de la educación, y queremos que tú seas parte de él.<br/>
+    <strong>EduTech: Aprende, crece, transforma.</strong>
+  </p>
+</section>
 
  
   <section>
     <h2>Registro de Usuario</h2>
-    <form action="/" method="POST">
-      <label for="nombre">Nombre completo</label>
-      <input type="text" id="nombre" name="nombre" required>
+  <form action="/" method="POST"> 
+  <label for="nombre">Nombre completo</label>
+  <input type="text" id="nombre" name="nombre" required>
 
-      <label for="email">Correo electrónico</label>
-      <input type="email" id="email" name="email" required>
+  <label for="email">Correo electrónico</label>
+  <input type="email" id="email" name="email" required>
 
-      <label for="contrasena">Contraseña</label>
-      <input type="password" id="contrasena" name="contrasena" required>
+  <label for="contrasena">Contraseña</label>
+  <input type="password" id="contrasena" name="contrasena" required>
 
-      <label for="activo">Activo</label>
-      <input type="checkbox" id="activo" name="activo" required>
+  <label for="rol">Rol</label>
+  <select id="Rol" name="Rol" required>
+    <option value="" disabled selected>Seleccione un rol</option>
+    <option value="3">Administrador</option>
+    <option value="1">Estudiante</option>
+    <option value="2">Docente</option>
+  </select>
 
-      <button type="submit">Registrar</button>
-    </form>
+  <label for="quieres activar la cuenta?">Estado</label>
+  <select id="activo" name="activo" required>
+    <option value="" disabled selected>Estado</option>
+    <option value="true">Activo</option>
+    <option value="false">Inactivo</option>
+  </select>
+
+  <button type="submit">Registrar</button>
+</form>
+
   </section>
-
-  <section>
-    <h2>Contacto / Soporte</h2>
-    <form>
-      <label for="contacto-nombre">Nombre</label>
-      <input type="text" id="contacto-nombre" required>
-
-      <label for="contacto-correo">Correo electrónico</label>
-      <input type="email" id="contacto-correo" required>
-
-      <label for="mensaje">Mensaje</label>
-      <textarea id="mensaje" rows="4" required></textarea>
-
-      <button type="submit">Enviar mensaje</button>
-    </form>
-  </section>
-
 
   <section>
     <h2>Preguntas Frecuentes (FAQ)</h2>
@@ -215,7 +238,7 @@
 
 
   <section>
-    <h2>Opiniones de los cursos</h2>
+    <h2>Valoraciones</h2>
 
     <div class="curso-historial">
       <p><strong>Curso:</strong> Introducción a HTML</p>
