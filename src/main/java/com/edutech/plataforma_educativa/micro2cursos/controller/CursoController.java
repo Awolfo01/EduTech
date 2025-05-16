@@ -1,5 +1,6 @@
 package com.edutech.plataforma_educativa.micro2cursos.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.edutech.plataforma_educativa.micro2cursos.model.Curso;
 import com.edutech.plataforma_educativa.micro2cursos.model.Modulo;
@@ -26,6 +27,12 @@ public class CursoController {
     @PostMapping
     public Curso crear(@RequestBody Curso curso) {
         return cursoService.crear(curso);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarCurso(@PathVariable Long id) {
+        cursoService.eliminarCurso(id);
+        return ResponseEntity.noContent().build(); // HTTP 204 No Content
     }
 
     @GetMapping("/instructor/{id}")
