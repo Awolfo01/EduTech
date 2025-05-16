@@ -1,0 +1,205 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Cursos - EDUTECH</title>
+  <style>
+  
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2fdf0;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #c8f9c4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #000;
+    }
+
+    nav {
+      background-color: #d5fccd;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2e7d32;
+    }
+
+    .filtros, .cursos, .form-admin, .estado-contenido {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .filtros label {
+      margin-right: 10px;
+    }
+
+    .curso {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .curso h3 {
+      margin: 0 0 5px;
+    }
+
+    .boton {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .boton:hover {
+      background-color: #45a049;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .estado {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .pendiente {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .aprobado {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .rechazado {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .icono {
+      font-size: 16px;
+      margin-right: 5px;
+    }
+
+    .form-botones {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>EDUTECH - Plataforma de Cursos</h1>
+  </header>
+
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="#">Cursos</a>
+    <a href="#">Administrador</a>
+	  <a href="#">Actualizar cuenta</a>
+   
+  </nav>
+
+  <section class="filtros">
+    <h2>Filtrar cursos</h2>
+    <label>Categoría:
+      <select>
+        <option>Todas</option>
+        <option>Programación</option>
+        <option>Diseño</option>
+        <option>Negocios</option>
+      </select>
+    </label>
+    <label>Fecha:
+      <select>
+        <option>Recientes</option>
+        <option>Antiguos</option>
+      </select>
+    </label>
+    <label>Dificultad:
+      <select>
+        <option>Todos</option>
+        <option>Básico</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+      </select>
+    </label>
+  </section>
+
+  <section class="cursos">
+    <h2>Cursos disponibles</h2>
+
+    <div class="curso">
+      <h3>Introducción a HTML</h3>
+      <p>Aprende la estructura básica de una página web usando HTML</p>
+      <p><strong>Instructor:</strong> María Gómez</p>
+      <button class="boton"> Ver detalles</button>
+    </div>
+
+    <div class="curso">
+      <h3>CSS para Principiantes</h3>
+      <p>Domina los estilos con CSS y crea sitios atractivos</p>
+      <p><strong>Instructor:</strong> Pedro Silva</p>
+      <button class="boton"> Ver detalles</button>
+    </div>
+
+    <div class="curso">
+      <h3>Fundamentos de JavaScript</h3>
+      <p>Conoce el lenguaje que da vida a la web</p>
+      <p><strong>Instructor:</strong> Laura Reyes</p>
+      <button class="boton"> Ver detalles
