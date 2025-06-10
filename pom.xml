@@ -63,6 +63,12 @@
     	</dependency>
 		<!-- fin de codigo para conectar las vistas -->
 
+		<dependency>
+  			<groupId>net.datafaker</groupId>
+ 			<artifactId>datafaker</artifactId>
+  			<version>2.0.2</version> <!-- o la última versión compatible -->
+		</dependency>
+
 	</dependencies>
 
 	<build>
