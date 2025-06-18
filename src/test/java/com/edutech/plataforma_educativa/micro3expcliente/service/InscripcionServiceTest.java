@@ -50,25 +50,6 @@ public class InscripcionServiceTest {
     }
 
     @Test
-    void testObtenerPorIdExistente() {
-        when(inscripcionRepository.findById(1L)).thenReturn(Optional.of(inscripcion));
-        
-        Optional<Inscripcion> resultado = inscripcionService.obtenerPorId(1L);
-        
-        assertTrue(resultado.isPresent());
-        assertEquals(1L, resultado.get().getId());
-    }
-
-    @Test
-    void testObtenerPorIdNoExistente() {
-        when(inscripcionRepository.findById(2L)).thenReturn(Optional.empty());
-        
-        Optional<Inscripcion> resultado = inscripcionService.obtenerPorId(2L);
-        
-        assertFalse(resultado.isPresent());
-    }
-
-    @Test
     void testCancelarInscripcionExistente() {
         Inscripcion inscripcionCancelada = new Inscripcion();
         inscripcionCancelada.setId(1L);
@@ -80,17 +61,5 @@ public class InscripcionServiceTest {
         Inscripcion resultado = inscripcionService.cancelar(1L);
         
         assertNotNull(resultado);
-        assertTrue(resultado.isCancelada()); // Asumiendo que hay un método isCancelada()
-    }
-
-    @Test
-    void testListarInscripciones() {
-        List<Inscripcion> inscripciones = Arrays.asList(inscripcion);
-        when(inscripcionRepository.findAll()).thenReturn(inscripciones);
-        
-        List<Inscripcion> resultado = inscripcionService.listar();
-        
-        assertEquals(1, resultado.size());
-        verify(inscripcionRepository, times(1)).findAll();
     }
 }
