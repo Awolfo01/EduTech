@@ -8,16 +8,18 @@ import com.edutech.plataforma_educativa.micro3expcliente.model.Inscripcion;
 import com.edutech.plataforma_educativa.micro3expcliente.model.UsuarioDTO;
 import com.edutech.plataforma_educativa.micro3expcliente.repository.InscripcionRepository;
 
-//import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InscripcionService {
 
-    //private final List<Inscripcion> inscripciones = new ArrayList<>();
+    private final InscripcionRepository inscripcionRepository;
     private final RestTemplate restTemplate;
 
-    public InscripcionService(RestTemplate restTemplate) {
+    @Autowired
+    public InscripcionService(InscripcionRepository inscripcionRepository, RestTemplate restTemplate) {
+        this.inscripcionRepository = inscripcionRepository;
         this.restTemplate = restTemplate;
     }
 
@@ -29,19 +31,17 @@ public class InscripcionService {
     public UsuarioDTO obtenerEstudiante(Long idEstudiante) {
         String url = "http://localhost:8081/api/micro1/usuarios/" + idEstudiante;
         return restTemplate.getForObject(url, UsuarioDTO.class);
-    } //Este metodo per,ite obtener el estudiante (que es un dato de la clase Usuario, del paquete de micro1)
+    }
 
     public Inscripcion cancelar(Long id) {
-        Inscripcion ins = obtenerPorId(id);
-        if (ins != null) {
-            ins.cancelarInscripcion();
-            return inscripcionRepository.save(ins);
+        Optional<Inscripcion> optionalInscripcion = inscripcionRepository.findById(id);
+        if (optionalInscripcion.isPresent()) {
+            Inscripcion inscripcion = optionalInscripcion.get();
+            inscripcion.cancelarInscripcion();
+            return inscripcionRepository.save(inscripcion);
         }
         return null;
     }
-    
-    @Autowired
-    private InscripcionRepository inscripcionRepository;
 
     public List<Inscripcion> listar() {
         return inscripcionRepository.findAll();
@@ -51,8 +51,7 @@ public class InscripcionService {
         return inscripcionRepository.save(inscripcion);
     }
 
-    public Inscripcion obtenerPorId(Long id) {
-       return inscripcionRepository.findById(id).orElse(null);
+    public Optional<Inscripcion> obtenerPorId(Long id) {
+        return inscripcionRepository.findById(id);
     }
-
 }
