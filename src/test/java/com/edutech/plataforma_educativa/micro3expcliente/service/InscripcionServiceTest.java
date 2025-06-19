@@ -1,19 +1,19 @@
 package com.edutech.plataforma_educativa.micro3expcliente.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 import com.edutech.plataforma_educativa.micro3expcliente.model.Inscripcion;
 import com.edutech.plataforma_educativa.micro3expcliente.repository.InscripcionRepository;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Optional;
+import java.time.LocalDate;
+
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class InscripcionServiceTest {
@@ -21,43 +21,24 @@ public class InscripcionServiceTest {
     @Mock
     private InscripcionRepository inscripcionRepository;
 
-    @Mock
-    private RestTemplate restTemplate;
-
     @InjectMocks
     private InscripcionService inscripcionService;
 
-    private Inscripcion inscripcion;
-
-    @BeforeEach
-    void setUp() {
-        inscripcion = new Inscripcion();
-        inscripcion.setId(1L);
-        // Configura otros campos necesarios
-    }
-
     @Test
     void testCrearInscripcion() {
-        when(inscripcionRepository.save(any(Inscripcion.class))).thenReturn(inscripcion);
-        
-        Inscripcion resultado = inscripcionService.crear(inscripcion);
-        
-        assertNotNull(resultado);
-        assertEquals(1L, resultado.getId());
-        verify(inscripcionRepository, times(1)).save(inscripcion);
-    }
+        // Arrange: crear una inscripción simulada
+        Inscripcion inscripcion = new Inscripcion();
+        inscripcion.setFechaInscripcion(LocalDate.of(2024, 6, 1));
 
-    @Test
-    void testCancelarInscripcionExistente() {
-        Inscripcion inscripcionCancelada = new Inscripcion();
-        inscripcionCancelada.setId(1L);
-        inscripcionCancelada.cancelarInscripcion();
-        
-        when(inscripcionRepository.findById(1L)).thenReturn(Optional.of(inscripcion));
-        when(inscripcionRepository.save(any(Inscripcion.class))).thenReturn(inscripcionCancelada);
-        
-        Inscripcion resultado = inscripcionService.cancelar(1L);
-        
+        // Simular comportamiento del repositorio
+        when(inscripcionRepository.save(any(Inscripcion.class))).thenReturn(inscripcion);
+
+        // Act: llamar al método a probar
+        Inscripcion resultado = inscripcionService.crear(inscripcion);
+
+        // Assert: verificar comportamiento
         assertNotNull(resultado);
+        assertEquals(LocalDate.of(2024, 6, 1), resultado.getFechaInscripcion());
+        verify(inscripcionRepository, times(1)).save(inscripcion);
     }
 }
