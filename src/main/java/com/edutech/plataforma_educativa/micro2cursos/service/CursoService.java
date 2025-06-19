@@ -1,6 +1,5 @@
 package com.edutech.plataforma_educativa.micro2cursos.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import com.edutech.plataforma_educativa.micro2cursos.model.Curso;
@@ -16,10 +15,11 @@ import java.util.List;
 @Service
 public class CursoService {
 
-    // private final List<Curso> cursos = new ArrayList<>(); --Ya no se necesita
+    private final CursoRepository cursoRepository;
     private final RestTemplate restTemplate;
 
-    public CursoService(RestTemplate restTemplate) {
+    public CursoService(CursoRepository cursoRepository, RestTemplate restTemplate) {
+        this.cursoRepository = cursoRepository;
         this.restTemplate = restTemplate;
     }
 
@@ -62,9 +62,6 @@ public class CursoService {
             throw new RuntimeException("Curso no encontrado con ID: " + id);
         }
     }
-
-    @Autowired
-    private CursoRepository cursoRepository;
 
     public List<Curso> listar() {
         return cursoRepository.findAll();
