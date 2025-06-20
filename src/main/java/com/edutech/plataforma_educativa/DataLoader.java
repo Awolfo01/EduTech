@@ -92,12 +92,14 @@ public class DataLoader {
         for (int i = 0; i < 5; i++) {
             Curso curso = new Curso();
             curso.setTitulo("Curso de " + faker.educator().course());
-            curso.setDescripcion(faker.lorem().paragraph());
+            String descripcion = faker.lorem().paragraph(1);
+            curso.setDescripcion(descripcion.substring(0, Math.min(250, descripcion.length())));
             curso.setInstructorId(usuarios.get(i % usuarios.size()).getId());
             curso.setEstado(EstadoCurso.APROBADO);
             cursos.add(curso);
         }
         cursoRepository.saveAll(cursos);
+
 
         List<Modulo> modulos = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
