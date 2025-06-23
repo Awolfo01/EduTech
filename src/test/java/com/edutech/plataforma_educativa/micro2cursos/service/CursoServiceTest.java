@@ -19,9 +19,13 @@ public class CursoServiceTest {
 
     @Mock
     private CursoRepository cursoRepository;
+    //Esta anotación crea una instancia de CursoRepository, de tal manera que no accede a la BD
+    //sino a la instancia que funciona en tiempo de ejecución
 
     @InjectMocks
     private CursoService cursoService;
+    //Esta anotación inhyecta cursoRepository en una instancia de cursoService 
+    //para acceder al método a probar
 
     @BeforeEach
     void setUp() {
@@ -30,7 +34,7 @@ public class CursoServiceTest {
 
     @Test
     void testCrearCurso() {
-        // Arrange: simulamos un curso
+        // Arrange: simulamos la creación de un curso
         Curso curso = new Curso();
         curso.setTitulo("Curso de Spring Boot");
         curso.setDescripcion("Curso introductorio");

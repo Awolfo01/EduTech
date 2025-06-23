@@ -7,6 +7,8 @@ import com.edutech.plataforma_educativa.micro3expcliente.model.Inscripcion;
 import com.edutech.plataforma_educativa.micro3expcliente.model.UsuarioDTO;
 import com.edutech.plataforma_educativa.micro3expcliente.service.InscripcionService;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -25,7 +27,7 @@ public class InscripcionController {
     }
 
     @PostMapping
-    public Inscripcion crear(@RequestBody Inscripcion inscripcion) {
+    public Inscripcion crear(@RequestBody @Valid Inscripcion inscripcion) {
         return inscripcionService.crear(inscripcion);
     }
 

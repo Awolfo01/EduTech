@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import com.edutech.plataforma_educativa.micro1usuarios.model.Usuario;
 import com.edutech.plataforma_educativa.micro1usuarios.service.UsuarioService;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -23,7 +25,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public Usuario crear(@RequestBody Usuario usuario) {
+    public Usuario crear(@RequestBody @Valid Usuario usuario) {
         return usuarioService.crear(usuario);
     }
 

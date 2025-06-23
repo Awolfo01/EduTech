@@ -1,6 +1,8 @@
 package com.edutech.plataforma_educativa.micro2cursos.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.List;
 
 @Entity
@@ -10,8 +12,9 @@ public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotBlank(message = "El título del curso es obligatorio")
     private String titulo;
+    @NotBlank(message = "La descripción del curso es obligatoria")
     private String descripcion;
     private Long instructorId;
 
