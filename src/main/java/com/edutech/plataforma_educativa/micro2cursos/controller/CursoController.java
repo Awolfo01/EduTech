@@ -7,6 +7,8 @@ import com.edutech.plataforma_educativa.micro2cursos.model.Modulo;
 import com.edutech.plataforma_educativa.micro2cursos.model.UsuarioDTO;
 import com.edutech.plataforma_educativa.micro2cursos.service.CursoService;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -25,7 +27,7 @@ public class CursoController {
     }
 
     @PostMapping
-    public Curso crear(@RequestBody Curso curso) {
+    public Curso crear(@RequestBody @Valid Curso curso) {
         return cursoService.crear(curso);
     }
 

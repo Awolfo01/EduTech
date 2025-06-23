@@ -1,6 +1,9 @@
 package com.edutech.plataforma_educativa.micro3expcliente.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDate;
 
 @Entity
@@ -9,8 +12,9 @@ public class Inscripcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotNull(message = "La id del estudiante es obligatoria")
     private Long estudianteId;
+    @NotNull(message = "La id del curso es obligatoria")
     private Long cursoId;
     private LocalDate fechaInscripcion;
     private boolean cancelada; // Mover aquí

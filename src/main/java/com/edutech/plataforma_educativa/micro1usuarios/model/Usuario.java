@@ -1,6 +1,7 @@
 package com.edutech.plataforma_educativa.micro1usuarios.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "usuario")
@@ -9,8 +10,11 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "El nombre del usuario es obligatorio")
     private String nombre;
+    @NotBlank(message = "El email del usuario es obligatorio")
     private String email;
+    @NotBlank(message = "La contraseña es obligatoria")
     private String contrasena;
     private boolean activo;
     
